@@ -16,6 +16,9 @@
 		F48C0EDB259B8B9B00B3B4B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48C0ED9259B8B9B00B3B4B9 /* LaunchScreen.storyboard */; };
 		F48C0EE6259B8B9C00B3B4B9 /* ThinkITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C0EE5259B8B9C00B3B4B9 /* ThinkITTests.swift */; };
 		F48C0EF1259B8B9C00B3B4B9 /* ThinkITUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C0EF0259B8B9C00B3B4B9 /* ThinkITUITests.swift */; };
+		F48C0F02259B9E8A00B3B4B9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C0F01259B9E8A00B3B4B9 /* SecondViewController.swift */; };
+		F48C0F0A259BADC300B3B4B9 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C0F09259BADC300B3B4B9 /* ArticleTableViewCell.swift */; };
+		F48C0F12259BF37800B3B4B9 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C0F11259BF37800B3B4B9 /* Room.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		F48C0EEC259B8B9C00B3B4B9 /* ThinkITUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThinkITUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48C0EF0259B8B9C00B3B4B9 /* ThinkITUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkITUITests.swift; sourceTree = "<group>"; };
 		F48C0EF2259B8B9C00B3B4B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F48C0F01259B9E8A00B3B4B9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		F48C0F09259BADC300B3B4B9 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		F48C0F11259BF37800B3B4B9 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				F48C0ED9259B8B9B00B3B4B9 /* LaunchScreen.storyboard */,
 				F48C0EDC259B8B9B00B3B4B9 /* Info.plist */,
 				F48C0ED4259B8B9800B3B4B9 /* ThinkIT.xcdatamodeld */,
+				F48C0F01259B9E8A00B3B4B9 /* SecondViewController.swift */,
+				F48C0F09259BADC300B3B4B9 /* ArticleTableViewCell.swift */,
+				F48C0F11259BF37800B3B4B9 /* Room.swift */,
 			);
 			path = ThinkIT;
 			sourceTree = "<group>";
@@ -263,8 +272,11 @@
 			files = (
 				F48C0ED0259B8B9800B3B4B9 /* ViewController.swift in Sources */,
 				F48C0ECC259B8B9800B3B4B9 /* AppDelegate.swift in Sources */,
+				F48C0F12259BF37800B3B4B9 /* Room.swift in Sources */,
 				F48C0ECE259B8B9800B3B4B9 /* SceneDelegate.swift in Sources */,
+				F48C0F02259B9E8A00B3B4B9 /* SecondViewController.swift in Sources */,
 				F48C0ED6259B8B9800B3B4B9 /* ThinkIT.xcdatamodeld in Sources */,
+				F48C0F0A259BADC300B3B4B9 /* ArticleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
