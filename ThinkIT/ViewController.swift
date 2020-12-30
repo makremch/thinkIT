@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         designOutlet()
         
-        if ud.string(forKey: "UserName")! != nil{
+        if ud.string(forKey: "UserName") != nil{
             let second = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "second") as! SecondViewController
             self.navigationController?.pushViewController(second, animated: true)
         }
