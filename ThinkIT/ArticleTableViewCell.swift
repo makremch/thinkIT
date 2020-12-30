@@ -22,6 +22,8 @@ class ArticleTableViewCell: UITableViewCell {
     }
     
     
+    
+    
     func designOutlets(){
         viewArticle.layer.cornerRadius       = 10
         viewArticle.backgroundColor          = UIColor.white
