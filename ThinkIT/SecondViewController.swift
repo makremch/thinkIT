@@ -12,11 +12,13 @@ import UIKit
 class SecondViewController: UIViewController {
  
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dateLabel: UILabel!
-  
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var rooms : [Room] = []
     let ud = UserDefaults.standard
-    
+    var currentRoomArray : [Room] = []
     
     
     override func viewDidLoad() {
@@ -32,15 +34,19 @@ class SecondViewController: UIViewController {
         rooms.append(Room(image: UIImage(named: "bedroom")          ?? UIImage(),name: "BedRoom"   ,numberOfDevices : 6))
         rooms.append(Room(image: UIImage(named: "livingroom")       ?? UIImage(),name: "LivingRoom",numberOfDevices : 3))
         rooms.append(Room(image: UIImage(named: "mediaroom")        ?? UIImage(),name: "MediaRoom" ,numberOfDevices : 1))
+        currentRoomArray = rooms
+    setUpSearchBar()
     }
     
-  
+    private func setUpSearchBar(){
+        searchBar.delegate = self
+    }
 
 }
 
-extension SecondViewController:UITableViewDelegate,UITableViewDataSource{
+extension SecondViewController:UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rooms.count
+        return currentRoomArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,18 +54,29 @@ extension SecondViewController:UITableViewDelegate,UITableViewDataSource{
             else {
                 return UITableViewCell()
         }
-        cell.imageViewArticle.image = rooms[indexPath.row].image
-        cell.NameLabel.text = rooms[indexPath.row].name
-        if (rooms[indexPath.row].numberOfDevices) <= 1 {
-            cell.participantLabel.text = String(rooms[indexPath.row].numberOfDevices) + " Device"
+        cell.imageViewArticle.image = currentRoomArray[indexPath.row].image
+        cell.NameLabel.text = currentRoomArray[indexPath.row].name
+        if (currentRoomArray[indexPath.row].numberOfDevices) <= 1 {
+            cell.participantLabel.text = String(currentRoomArray[indexPath.row].numberOfDevices) + " Device"
         }
         else{
-            cell.participantLabel.text = String(rooms[indexPath.row].numberOfDevices) + " Devices"
+            cell.participantLabel.text = String(currentRoomArray[indexPath.row].numberOfDevices) + " Devices"
         }
         
         
         return cell
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            currentRoomArray = rooms
+            tableView.reloadData()
+            return
+        }
+        currentRoomArray = rooms.filter({r -> Bool in r.name.contains(searchText)})
+        tableView.reloadData()
+    }
+    
     
     
 }
