@@ -23,6 +23,7 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIView.transition(with: tableView, duration: 3.0, options: .transitionCurlUp, animations: {self.tableView.reloadData()}, completion: nil)
         let name             = ud.string(forKey: "UserName")!
         let today            = Date()
         let formatter        = DateFormatter()
@@ -35,7 +36,9 @@ class SecondViewController: UIViewController {
         rooms.append(Room(image: UIImage(named: "livingroom")       ?? UIImage(),name: "LivingRoom",numberOfDevices : 3))
         rooms.append(Room(image: UIImage(named: "mediaroom")        ?? UIImage(),name: "MediaRoom" ,numberOfDevices : 1))
         currentRoomArray = rooms
+        
     setUpSearchBar()
+        
     }
     
     private func setUpSearchBar(){
@@ -45,6 +48,7 @@ class SecondViewController: UIViewController {
 }
 
 extension SecondViewController:UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentRoomArray.count
     }
@@ -63,14 +67,13 @@ extension SecondViewController:UITableViewDelegate,UITableViewDataSource, UISear
             cell.participantLabel.text = String(currentRoomArray[indexPath.row].numberOfDevices) + " Devices"
         }
         
-        
         return cell
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
             currentRoomArray = rooms
-            tableView.reloadData()
+            UIView.transition(with: tableView, duration: 1.0, options: .transitionCurlUp, animations: {self.tableView.reloadData()}, completion: nil)
             return
         }
         currentRoomArray = rooms.filter({r -> Bool in r.name.contains(searchText)})
